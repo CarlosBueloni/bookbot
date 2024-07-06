@@ -5,6 +5,7 @@ def main():
     word_count = get_word_count(content)
     print(content)
     print(f"This book has: {word_count} words")
+    print(count_all_chars(content))
 
 def get_book_text(path):
     with open(path) as f:
@@ -13,6 +14,17 @@ def get_book_text(path):
 
 def get_word_count(text):
     return len(text.split())
+
+def count_all_chars(text):
+    count = {}
+    for char in text.lower():
+        if char in count:
+            count[char] += 1
+        else:
+            count[char] = 1
+    
+    return count
+
 
 main()
 
